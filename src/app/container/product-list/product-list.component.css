@@ -1,0 +1,8 @@
+.ekart--products--container {
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 30px 21vh;
+}

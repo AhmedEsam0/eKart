@@ -1,0 +1,41 @@
+<div class="ekart--product--container">
+  <!-- <img [src]="product.pImage">
+    <p>Name: {{ product.name }}</p>
+    <p>Price: {{ '$' + product.price }}</p>
+    <p>Color: {{product.color}}</p>
+    <p>Discounted Price: {{ getDiscountedPrice().toFixed(2) }}</p>
+    <p>{{product.inStock > 0 ? 'Only' + product.inStock +' items left': 'Not in Stock'}}</p>
+    <button (click)="decrementCartValue()">-</button>
+    <span>{{ addToCart }}</span>
+    <button (click)="incrementCartValue()">+</button>
+    <input (input)="onNameChange($event)"><br>
+    <p>name={{name}}</p> -->
+  <app-search (searchValue)="searchValue($event)"></app-search>
+  <!-- <div *ngFor="let prod of listOfString">
+    <p>{{prod}}</p>
+  </div> -->
+
+  <product-list
+    [searchTextValue]="searchText"
+    #productListComponent
+  ></product-list>
+
+  <product-detail
+    *ngIf="productListComponent.selectedProduct"
+    [selectedProduct]="productListComponent.selectedProduct"
+    (closeEvent)="onCloseProductDetail()"
+  ></product-detail>
+
+  <div class="ekart-featured-products">
+    <div class="ekart-featured-product-heading">
+      <h1>Latest Arrival in Popular Brands</h1>
+    </div>
+
+    <featured-brands
+      [brandName]="NewArrivalBrands[i]"
+      *ngFor="let item of NewArrivalBrands; let i = index"
+    ></featured-brands>
+  </div>
+</div>
+
+<!--Disabled, Hidden, Checked-->

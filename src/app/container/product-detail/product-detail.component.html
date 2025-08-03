@@ -1,0 +1,107 @@
+<div class="ekart--product--details--info scroll">
+  <div class="ekart-product-detail-close">
+    <i class="fa fa-times" aria-hidden="true" (click)="close()"></i>
+  </div>
+
+  <div class="ekart-product-detail-image">
+    <img [src]="selectedProduct.imageURL" class="ekart-product-detail-image" />
+  </div>
+
+  <div class="ekart-product-detail">
+    <div class="ekart-product-detail-name">
+      <h2>{{ selectedProduct.name }}</h2>
+    </div>
+    <div class="ekart-product-detail-gbc">
+      <span>{{ selectedProduct.gender }}</span>
+      <span>{{ selectedProduct.brand }}</span>
+      <span>{{ selectedProduct.category }}</span>
+    </div>
+    <div class="ekart-product-detail-price">
+      <p>
+        <b>Price Each Pair:</b>
+        <span
+          *ngIf="selectedProduct.discountPrice"
+          style="background-color: red; color: white"
+          ><s>${{ selectedProduct.price }}</s></span
+        >
+        <span style="background-color: green; color: white"
+          >${{
+            selectedProduct.discountPrice
+              ? selectedProduct.discountPrice
+              : selectedProduct.price
+          }}</span
+        >
+        (Inclusive of all taxes)
+      </p>
+    </div>
+
+    <div class="ekart-product-detail-size">
+      <div style="padding: 5px 0px; border-bottom: #ccc 2px solid">
+        <h4>Available Size</h4>
+      </div>
+      <diV style="margin-top: 20px">
+        <span
+          *ngFor="
+            let size of selectedProduct.size;
+            let first = first;
+            let last = last
+          "
+          (click)="sizeSelected(size)"
+          [ngClass]="{
+            'ekart-product-detail-available-size': true,
+            'ekart-product-detail-selectedSize': size === selectedSize,
+            'rounded-left': first,
+            'rounded-right': last
+          }"
+          >{{ size }}</span
+        >
+      </diV>
+    </div>
+
+    <div class="ekart-product-detail-color">
+      <div style="padding: 5px 0px; border-bottom: #ccc 2px solid">
+        <h4>Available Color</h4>
+      </div>
+      <div style="margin-top: 20px" class="swatches">
+        <span
+          *ngFor="let color of selectedProduct.color"
+          [ngClass]="{
+            'swatch-wrapper': true,
+            selected: selectedColor === color
+          }"
+          (click)="selectColor(color)"
+          [title]="color"
+        >
+          <span
+            class="inner-color"
+            [ngStyle]="{ 'background-color': color }"
+          ></span>
+        </span>
+      </div>
+    </div>
+
+    <div class="ekart-product-detail-desc">
+      <div style="padding: 5px 0px; border-bottom: #ccc 2px solid">
+        <h4>Product Description</h4>
+      </div>
+      <div style="margin-top: 20px">
+        <p>{{ selectedProduct.description }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="ekart-product-detail-addtoCart">
+    <button
+      class="btn-add-to-cart"
+      *ngIf="selectedProduct.is_in_inventory; else notifyMeButton"
+      appHover
+    >
+      ADD TO CART
+    </button>
+    <ng-template #notifyMeButton>
+      <button class="btn-add-to-cart">
+        Notify Me when this product is avaliable
+      </button>
+    </ng-template>
+  </div>
+</div>
+<div class="overlay" (click)="close()"></div>

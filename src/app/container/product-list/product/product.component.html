@@ -1,0 +1,44 @@
+<div class="ekart--product--item" [disableProduct]="!prod.is_in_inventory">
+  <div class="ekart-wishlist-sale-container">
+    <button
+      class="ekart--add--to--wishlist"
+      (click)="toggleIsInWatchlist(prod); $event.stopPropagation()"
+    >
+      <i
+        [ngClass]="prod.is_in_watchlist ? 'fa fa-heart' : 'fa fa-heart-o'"
+        aria-hidden="true"
+      ></i>
+    </button>
+
+    <div class="ekart-on-sale-tag" *ngIf="prod.discountPrice">
+      {{
+        (((prod.price - prod.discountPrice) / prod.price) * 100).toFixed() +
+          "% OFF"
+      }}
+    </div>
+  </div>
+  <div class="ekart--product--image">
+    <img [src]="prod.imageURL" class="ekart--product--image" />
+  </div>
+  <div class="ekart--add--to--price">
+    {{ prod.price }}
+  </div>
+  <div class="ekart--product--name">{{ prod.name }}</div>
+  <div class="ekart--product--category">
+    {{ prod.gender }} . {{ prod.category }} . {{ prod.brand }}
+  </div>
+  <div class="ekart--product--available-colors">
+    {{ prod.color.length }} Colors . Best Seller
+  </div>
+  <div
+    class="ekart--product--in--stock"
+    [ngStyle]="{
+      color: prod.is_in_inventory ? 'green' : 'red',
+      fontWeight: 'bold'
+    }"
+  >
+    {{
+      prod.is_in_inventory ? "Avaliable in Stock" : " Not Avaliable in Stock"
+    }}
+  </div>
+</div>
