@@ -1,14 +1,19 @@
 import { Component } from '@angular/core';
-import { TopMenuComponent } from './top-menu/top-menu.component';
-import { MainMenuComponent } from './main-menu/main-menu.component';
+
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [TopMenuComponent,MainMenuComponent],
+  imports: [CommonModule],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.css'
+  styleUrl: './header.component.css',
 })
 export class HeaderComponent {
+  links = ['Home', 'Products', 'About', 'Contact'];
+  menuVisible = false;
 
+  toggleMenu() {
+    this.menuVisible = !this.menuVisible;
+  }
 }

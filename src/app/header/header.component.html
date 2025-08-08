@@ -1,16 +1,19 @@
-
+<!-- <div class="ekart--header">
+  <div class="ekart-logo">eKart</div>
+  <div class="ekart--header--nav">
+    <i class="fa-solid fa-bars" (click)="toggleMenu()"></i>
+    <div class="ekart-menu">
+      <a *ngFor="let link of links">{{ link }}</a>
+    </div>
+  </div>
+</div> -->
 <div class="ekart--header">
-    <div class="ekart-logo">
-        <!-- <img src="images/logo.jpeg"> -->
-        eKart
+  <div class="ekart-logo">eKart</div>
+  
+  <div class="ekart--header--nav">
+    <i class="fa-solid fa-bars menu-links" (click)="toggleMenu()"></i>
+    <div class="ekart-menu" [class.show]="menuVisible">
+      <a *ngFor="let link of links">{{ link }}</a>
     </div>
-    <div class="ekart--header--nav">
-        <!--Top Menu-->
-        <top-menu></top-menu>
-        <div class="ekart--bottom--bar">
-            <!--Main Menu-->
-            <main-menu></main-menu>
-        </div>
-        
-    </div>
+  </div>
 </div>

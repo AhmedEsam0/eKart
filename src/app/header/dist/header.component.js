@@ -6,22 +6,26 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 exports.__esModule = true;
-exports.MainMenuComponent = void 0;
-var common_1 = require("@angular/common");
+exports.HeaderComponent = void 0;
 var core_1 = require("@angular/core");
-var MainMenuComponent = /** @class */ (function () {
-    function MainMenuComponent() {
+var common_1 = require("@angular/common");
+var HeaderComponent = /** @class */ (function () {
+    function HeaderComponent() {
         this.links = ['Home', 'Products', 'About', 'Contact'];
+        this.menuVisible = false;
     }
-    MainMenuComponent = __decorate([
+    HeaderComponent.prototype.toggleMenu = function () {
+        this.menuVisible = !this.menuVisible;
+    };
+    HeaderComponent = __decorate([
         core_1.Component({
-            selector: 'main-menu',
+            selector: 'app-header',
             standalone: true,
             imports: [common_1.CommonModule],
-            templateUrl: './main-menu.component.html',
-            styleUrl: './main-menu.component.css'
+            templateUrl: './header.component.html',
+            styleUrl: './header.component.css'
         })
-    ], MainMenuComponent);
-    return MainMenuComponent;
+    ], HeaderComponent);
+    return HeaderComponent;
 }());
-exports.MainMenuComponent = MainMenuComponent;
+exports.HeaderComponent = HeaderComponent;

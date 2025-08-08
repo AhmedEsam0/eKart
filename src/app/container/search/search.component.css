@@ -14,19 +14,24 @@
 
 
 .btn{
-    padding: 5px 10px;
     border: none;
 }
 .btn-search{
-    padding: 11px 30px;
+    height: 5.5vh;
+    padding: 0 25px;
     background-color: #28282B;
     margin-left: -2px;
     color:#fff;
     cursor: pointer;
     border-radius: 3px;
 }
+@media (max-width:767px) {
+    .btn-search{
+        padding: 0 16px;
+    }
+}
 .btn-disabled{
-    padding: 10.5px 30px;
+
     background-color: #aaa;
     margin-left: -1px;
     color: #999;

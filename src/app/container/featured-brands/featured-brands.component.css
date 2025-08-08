@@ -1,24 +1,72 @@
-.ekart-featured-product-item {
-  width: 270px;
-  margin: 10px 10px;
-  padding: 20px 30px;
-  background-color: #fff;
+featured-brands {
+  display: block;
+  height: 100%;
 }
 
-.title,
-.description,
-.call-to-action {
+.ekart-featured-products {
+  height: 100%;
+}
+
+.ekart-featured-product-content {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.title, .description, .call-to-action {
   margin: 10px 0px;
+}
+
+.title {
+  font-size: 1.3rem;
+  color: #28282b;
+}
+
+.description {
+  flex-grow: 1;
+  color: #555;
+  line-height: 1.6;
 }
 
 .call-to-action {
   background-color: #28282b;
   color: #fff;
   width: 100%;
-  padding: 10px 0px;
+  padding: 12px 0px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
   transition: all 0.2s ease-in-out;
+  font-size: 1rem;
+  font-weight: 600;
 }
 
 .call-to-action:hover {
   background-color: #36454f;
+  transform: translateY(-2px);
+}
+
+/* تصميم متجاوب للنص */
+@media (max-width: 1199px) {
+  .title {
+    font-size: 1.05rem;
+  }
+  
+  .description {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .title {
+    font-size: 1.25rem;
+  }
+  
+  .description {
+    font-size: 1rem;
+  }
 }

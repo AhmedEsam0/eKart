@@ -28,5 +28,5 @@ export class ContainerComponent {
     this.productListComponent.selectedProduct=null;
   }
 
-  NewArrivalBrands: string[] = ['Nike', 'Adidas', 'Puma'];
+  NewArrivalBrands: string[] = ['Nike', 'Adidas', 'Puma', 'Nizza'];
 }

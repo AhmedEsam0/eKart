@@ -1,34 +1,32 @@
-
-
 .ekart-featured-products {
   background-color: #28282b;
   padding: 20px 10px;
-  display: flex;
 }
 
 .ekart-featured-product-heading {
-  width: 320px;
+  text-align: center;
   margin: 10px 10px;
   padding: 20px 30px;
   color: #fff;
 }
 
-.ekart-featured-product-item {
-  width: 270px;
-  margin: 10px 10px;
-  padding: 20px 30px;
-  background-color: #fff;
+.ekart-featured-products-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  padding: 0 20px;
 }
 
-.title,
-.description,
-.call-to-action {
-  margin: 10px 0px;
+/* شاشات متوسطة: 2 بطاقات في الصف */
+@media (max-width: 1199px) {
+  .ekart-featured-products-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-.call-to-action {
-  background-color: #28282b;
-  color: #fff;
-  width: 100%;
-  padding: 10px 0px;
+/* شاشات صغيرة: 1 بطاقة في الصف */
+@media (max-width: 767px) {
+  .ekart-featured-products-cards {
+    grid-template-columns: 1fr;
+  }
 }

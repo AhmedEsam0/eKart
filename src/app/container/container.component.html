@@ -30,11 +30,12 @@
     <div class="ekart-featured-product-heading">
       <h1>Latest Arrival in Popular Brands</h1>
     </div>
-
-    <featured-brands
-      [brandName]="NewArrivalBrands[i]"
-      *ngFor="let item of NewArrivalBrands; let i = index"
-    ></featured-brands>
+    <div class="ekart-featured-products-cards">
+      <featured-brands
+        [brandName]="NewArrivalBrands[i]"
+        *ngFor="let item of NewArrivalBrands; let i = index"
+      ></featured-brands>
+    </div>
   </div>
 </div>
 

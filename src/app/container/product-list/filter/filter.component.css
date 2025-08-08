@@ -3,6 +3,19 @@
     margin-top: 50px;
     padding: 0px 20vh;
 }
+@media (max-width:767px){
+    .filter-container{
+        padding: 0;
+        text-align: center;
+    }
+}
+
+@media (max-width:375px){
+    .filter-container{
+        
+        font-size: 11px;
+    }
+}
 input[type=radio]{
     margin-left:10px;
     margin-right:5px;

@@ -1,9 +1,8 @@
+/*@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css");
+
 .ekart--header {
-  width: 100%;
-  height: 11vh;
-  display: flex;
-  flex-wrap: wrap;
-  border-bottom: #e5e4e2 1.5px solid;
+  border-bottom: #d5d5d5 1.5px solid;
+  position: relative;
 }
 
 .ekart-logo {
@@ -12,26 +11,210 @@
   font-weight: bold;
   color: #36454f;
   font-family: "Concert One", cursive;
-  width: 20%;
-}
-.ekart--header--nav {
-  width: 80%;
-  padding: 1vh 2vh;
-  font-size: 10px;
 }
 
-.ekart--bottom--bar {
+.ekart--header--nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: absolute;
   left: 50%;
-  transform: translateX(-50%);
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
-.btn {
-  padding: 15px 25px;
-  border: none;
-  margin: 10px 0px;
+.ekart-menu {
+  padding-top: 2vh;
+  padding: 1vh 1vh;
+  color: #36454f;
+  font-family: "Montserrat", sans-serif;
+  font-weight: normal;
+  font-size: 14px;
+  text-align: center;
+}
+.menu-links {
+  font-size: 20px;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
-.btn-primary {
-  background-color: #28282b;
-  color: white;
+@media (max-width: 767px) {
+  .ekart--header--nav > i {
+    position: absolute;
+    right: 10px;
+  }
+  .ekart-menu {
+    background-color: red;
+    position: absolute;
+    bottom: -655%;
+    display: flex;
+    flex-direction: column;
+    /* display: none; 
+  }
+}*/
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Concert+One&family=Montserrat:wght@400;500;600&display=swap');
+
+:root {
+  --primary-color: #36454f;
+  --secondary-color: #ff6b6b;
+  --background-color: #f8f9fa;
+  --border-color: #d5d5d5;
+  --hover-color: #4a4a52;
+  --shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.ekart--header {
+  border-bottom:  2px solid #d5d5d5;
+  position: relative;
+  background-color: white;
+  box-shadow: var(--shadow);
+  padding: 0 30px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ekart-logo {
+  font-size: 40px;
+  font-weight: bold;
+  color: #36454f;
+  font-family: "Concert One", cursive;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ekart-logo i {
+  color: var(--secondary-color);
+}
+
+.ekart--header--nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ekart-menu {
+  display: flex;
+  gap: 30px;
+}
+
+.ekart-menu a {
+  color: var(--primary-color);
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.ekart-menu a:hover {
+  color: var(--secondary-color);
+}
+
+.ekart-menu a:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--secondary-color);
+  transition: width 0.3s ease;
+}
+
+.ekart-menu a:hover:after {
+  width: 100%;
+}
+
+.menu-links {
+  font-size: 24px;
+  cursor: pointer;
+  display: none;
+  color: var(--primary-color);
+  transition: all 0.3s ease;
+}
+
+.menu-links:hover {
+  color: var(--secondary-color);
+  transform: scale(1.1);
+}
+
+/* تصميم القائمة المنسدلة للشاشات الصغيرة */
+@media (max-width: 767px) {
+  .ekart--header {
+    height: 70px;
+    padding: 0 30px;
+  }
+  
+  .ekart-logo {
+    font-size: 35px;
+  }
+  
+  .menu-links {
+    display: block;
+  }
+  
+  .ekart-menu {
+      
+
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color:white ;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    z-index: 1000;
+  }
+  
+  .ekart-menu.show {
+    max-height: 300px;
+  }
+  .ekart-menu a:first-child{
+    border-top: 2px solid #d5d5d5;
+  }
+  .ekart-menu a {
+    width: 100%;
+    text-align: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .ekart-menu a:last-child {
+    border-bottom: none;
+  }
+  
+  .ekart-menu a:hover {
+    background-color: #f9f9f9;
+  }
+  
+  .ekart-menu a:after {
+    display: none;
+  }
+}
+
+/* تصميم للشاشات المتوسطة */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .ekart-menu {
+    gap: 20px;
+  }
+  
+  .ekart-menu a {
+    font-size: 15px;
+    padding: 6px 10px;
+  }
 }

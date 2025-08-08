@@ -16,7 +16,7 @@ var featured_brands_component_1 = require("./featured-brands/featured-brands.com
 var ContainerComponent = /** @class */ (function () {
     function ContainerComponent() {
         this.searchText = '';
-        this.NewArrivalBrands = ['Nike', 'Adidas', 'Puma'];
+        this.NewArrivalBrands = ['Nike', 'Adidas', 'Puma', 'Nizza'];
     }
     ContainerComponent.prototype.searchValue = function (event) {
         this.searchText = event;
